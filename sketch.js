@@ -1,6 +1,6 @@
 let widthScreen = 800,
     heightScreen = 600,
-    wheelRadius = 10,
+    wheelRadius = 20,
     scoreElem,
     start1 = {
       x : widthScreen/3,
@@ -14,17 +14,12 @@ let widthScreen = 800,
     theta = Math.PI/2,
     speed = 2,
     wheels =[],
-    tapeLeft = {
-      x : 0,
-      y : heightScreen-50,
-    },
-    tapeRight = {
-      x : widthScreen,
-      y : heightScreen-50,
-    },
-    tape = [],
+    tapeLeft,
+    tapeRight,
+    insertTape,
+    tapes = [],
     sectionCross,
-    crossDirection,
+    crossDirection=0,
     barLength = 100;
 
     class NewWheel {
@@ -40,9 +35,20 @@ let widthScreen = 800,
       }
     }
 
+    class Tape {
+      constructor (x, y) {
+        this.x = x;
+        this.y = y;
+        this.cross = 1;
+        this.moving = false;
+      }
+    }
+
 function setup() {
   createCanvas(widthScreen, heightScreen);
-  tape.push(tapeLeft, tapeRight);
+  tapeLeft = new Tape(0, heightScreen-50);
+  tapeRight = new Tape(widthScreen, heightScreen-50);
+  tapes.push(tapeLeft, tapeRight);
   // SCORE SECTION
   scoreElem = createDiv('Score = 0');
   scoreElem.position(20, 20);
@@ -50,6 +56,7 @@ function setup() {
   scoreElem.style('color', 'white');
   timer= new Timer;
   newWheel = new NewWheel;
+  insertTape = new Tape(newWheel.x, newWheel.y);
 }
 
 
@@ -59,6 +66,7 @@ function draw() {
   checkTimer();
   checkButton();
   moveWheel();
+  checkCrash();
   checkCross();
   drawArray();
   drawTape();
@@ -66,39 +74,13 @@ function draw() {
 
 }
 
-
-
 function createNewWheel () {
 wheels.push (newWheel);
 theta = Math.PI/2
 timer.resetTimer();
 newWheel = new NewWheel;
-}
-
-function checkButton () {
-
-  if (keyIsDown(65)) {
-      theta += 0.1;
-    }
-  if (keyIsDown(68)) {
-      theta -= 0.1;
-    }
-}
-
-function mouseClicked() {
-  if (speed === 0) {
-    speed = 2;
-    timer.restartTimer();
-  } else {
-    speed = 0;
-    timer.pauseTimer();
-  }
-}
-
-function mousePressed() {
-}
-
-function mouseReleased() {
+for (let g = 0; (g< tapes.length-1); g++) if (tapes[g].moving) tapes[g].moving = false;
+insertTape = new Tape(newWheel.x, newWheel.y);
 }
 
 function moveWheel() {
@@ -120,7 +102,7 @@ function drawBar () {
 
 function drawArray() {
   for (let i = 0; i<wheels.length; i++) {
-      //console.log(i);
+    fill('white');
     ellipse (wheels[i].x, wheels[i].y,wheelRadius, wheelRadius);
   }
 }
@@ -128,25 +110,85 @@ function drawArray() {
 function drawTape() {
 
 
-  for (let i = 0; i<tape.length-1; i++) {
+  for (let i = 0; i<tapes.length-1; i++) {
 
-    let dst = (dist(tape[i].x, tape[i].y, tape[i+1].x, tape[i+1].y))/2;
-    let angle = atan2(( tape[i+1].y-tape[i].y),(tape[i+1].x-tape[i].x)) ;
+    let dst = (dist(tapes[i].x, tapes[i].y, tapes[i+1].x, tapes[i+1].y))/2;
+    let angle = atan2(( tapes[i+1].y-tapes[i].y),(tapes[i+1].x-tapes[i].x)) ;
     let angle2 = acos ((wheelRadius)/dst);
 
-    line (tape[i].x, tape[i].y,tape[i+1].x, tape[i+1].y);
+    if (tapes[i].cross == 0 && tapes[i+1].cross == 0) {
+
+        //  TANGENT ABOVE
+
+         let x1 = tapes[i].x+sin(angle)*wheelRadius/2;
+         let y1 = tapes[i].y-cos(angle)*wheelRadius/2;
+         let x2 = tapes[i+1].x+sin(angle)*wheelRadius/2;
+         let y2 = tapes[i+1].y-cos(angle)*wheelRadius/2;
+
+
+       line (x1, y1, x2, y2 );
+
+        }
+
+  else if (tapes[i].cross == 0 && tapes[i+1].cross == 1) {
+
+        //  TANGENT UP / DOWN
+
+             let x3 = tapes[i].x + cos(angle-angle2)*wheelRadius/2;
+             let y3 = tapes[i].y + sin(angle-angle2)*wheelRadius/2;
+             let x4 =  tapes[i+1].x - cos(angle-angle2)*wheelRadius/2;
+             let y4 =  tapes[i+1].y - sin(angle-angle2)*wheelRadius/2;
+
+
+       line (x3, y3, x4, y4 );
+
+        }
+
+   else if (tapes[i].cross == 1 && tapes[i+1].cross == 0) {
+
+        //  TANGENT DOWN / UP
+
+
+             let x5 = tapes[i].x + cos(angle+angle2)*wheelRadius/2;
+             let y5 = tapes[i].y + sin(angle+angle2)*wheelRadius/2;
+             let x6 =  tapes[i+1].x - cos(angle+angle2)*wheelRadius/2;
+             let y6 =  tapes[i+1].y - sin(angle+angle2)*wheelRadius/2;
+
+
+       line (x5, y5, x6, y6 );
+
+        }
+
+        else if (tapes[i].cross == 1 && tapes[i+1].cross == 1) {
+
+        //  TANGENT BELOW
+
+
+             let x7 = tapes[i].x - sin(angle)*wheelRadius/2;
+             let y7 = tapes[i].y + cos(angle)*wheelRadius/2;
+             let x8 =  tapes[i+1].x - sin(angle)*wheelRadius/2;
+             let y8 =  tapes[i+1].y + cos(angle)*wheelRadius/2;
+
+       line (x7, y7, x8, y8 );
+
+        }
+
+
+    //line (tapes[i].x, tapes[i].y,tapes[i+1].x, tapes[i+1].y);
   }
 }
 
 function checkCross () {
 
-  for (let l = 0; (l< tape.length-1); l++) {
+  for (let l = 0; (l< tapes.length-1); l++) {
 
+  let crossDirection = 0;
     // Translate everything so that line segment start point to (0, 0)
-  let a = (tape[l+1].x-tape[l].x); // Line segment end point horizontal coordinate
-  let b = (tape[l+1].y-tape[l].y); // Line segment end point vertical coordinate
-  let c = newWheel.x-tape[l].x; // Circle center horizontal coordinate
-  let d = newWheel.y-tape[l].y; // Circle center vertical coordinate
+  let a = (tapes[l+1].x-tapes[l].x); // Line segment end point horizontal coordinate
+  let b = (tapes[l+1].y-tapes[l].y); // Line segment end point vertical coordinate
+  let c = newWheel.x-tapes[l].x; // Circle center horizontal coordinate
+  let d = newWheel.y-tapes[l].y; // Circle center vertical coordinate
+
 
 
   // Collision computation
@@ -155,7 +197,7 @@ function checkCross () {
     if ( ((c*a + d*b >= 0) && (c*a + d*b <= a*a + b*b)) || ((a-c)*(a-c) + (b-d)*(b-d) <= wheelRadius*wheelRadius) || (c*c + d*d <= wheelRadius*wheelRadius) ){
 
       sectionCross = l;
-    //console.log(l)
+      //console.log(l)
 
        // orientation computation
            if (d*a - c*b < 0) {
@@ -163,19 +205,38 @@ function checkCross () {
             crossDirection = 1;
             }
 
-        // console.log(sectionCross);
-        insertMovingPoint(sectionCross);
+         if ((!tapes[sectionCross].moving) && (!tapes[sectionCross+1].moving) && !(checkCrash())) insertMovingPoint(sectionCross, crossDirection);
+         else if ((tapes[sectionCross].moving) )  movePoint(sectionCross, crossDirection);
         }
   }
   }
   }
 
-function insertMovingPoint (sectionCross) {
+function insertMovingPoint (sectionCross, crossDirection) {
 
-  if ((newWheel != tape[sectionCross]) && (newWheel != tape[sectionCross+1])){
-  tape.splice(sectionCross+1, 0, newWheel);
+  insertTape.x = newWheel.x;
+  insertTape.y = newWheel.y;
+  insertTape.cross = crossDirection;
+  insertTape.moving = true;
+  tapes.splice(sectionCross+1, 0, insertTape);
+}
+
+function movePoint (sectionCross, crossDirection) {
+
+  insertTape.x = newWheel.x;
+  insertTape.y = newWheel.y;
+  tapes.splice(sectionCross, 1, insertTape);
+}
+
+function checkCrash () {
+  for (let k = 0; k< wheels.length; k++)
+  if ( dist(newWheel.x, newWheel.y, wheels[k].x, wheels[k].y) < wheelRadius)
+  {
+    console.log("crash")
+    theta += Math.PI/2;
+    return true
   }
-
+  else return false
 }
 
 //function checkGameStatus() {
