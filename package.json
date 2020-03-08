@@ -1,0 +1,16 @@
+{
+  "name": "rew_p5-master",
+  "version": "1.0.0",
+  "description": "Porting of REW game to P5.js",
+  "main": "ardulink.js",
+  "dependencies": {
+    "firmata-party": "^2.0.0",
+    "johnny-five": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

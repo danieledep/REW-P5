@@ -1,6 +1,6 @@
 let widthScreen = 800,
     heightScreen = 600,
-    wheelRadius = 20,
+    wheelRadius = 10,
     scoreElem,
     start1 = {
       x : widthScreen/3,
@@ -32,6 +32,16 @@ let widthScreen = 800,
           this.x = start2.x;
           this.y = start2.y;
         }
+        this.color = 'white';
+      }
+      display() {
+        fill(this.color)
+        ellipse (this.x, this.y,wheelRadius*2, wheelRadius*2);
+      }
+
+      update() {
+        this.x += speed  * cos(theta);
+        this.y -= speed  * sin(theta);
       }
     }
 
@@ -66,11 +76,11 @@ function draw() {
   checkTimer();
   checkButton();
   moveWheel();
-  checkCrash();
   checkCross();
   drawArray();
   drawTape();
   drawBar();
+  checkCrash();
 
 }
 
@@ -84,9 +94,8 @@ insertTape = new Tape(newWheel.x, newWheel.y);
 }
 
 function moveWheel() {
-    newWheel.x += speed  * cos(theta);
-    newWheel.y -= speed  * sin(theta);
-ellipse (newWheel.x, newWheel.y,wheelRadius, wheelRadius);
+    newWheel.update();
+    newWheel.display();
 }
 
 function checkTimer() {
@@ -102,8 +111,11 @@ function drawBar () {
 
 function drawArray() {
   for (let i = 0; i<wheels.length; i++) {
-    fill('white');
-    ellipse (wheels[i].x, wheels[i].y,wheelRadius, wheelRadius);
+    if (checkCrash()) fill('red')
+    else fill('white');
+
+    wheels[i].display();
+
   }
 }
 
@@ -120,10 +132,10 @@ function drawTape() {
 
         //  TANGENT ABOVE
 
-         let x1 = tapes[i].x+sin(angle)*wheelRadius/2;
-         let y1 = tapes[i].y-cos(angle)*wheelRadius/2;
-         let x2 = tapes[i+1].x+sin(angle)*wheelRadius/2;
-         let y2 = tapes[i+1].y-cos(angle)*wheelRadius/2;
+         let x1 = tapes[i].x+sin(angle)*wheelRadius;
+         let y1 = tapes[i].y-cos(angle)*wheelRadius;
+         let x2 = tapes[i+1].x+sin(angle)*wheelRadius;
+         let y2 = tapes[i+1].y-cos(angle)*wheelRadius;
 
 
        line (x1, y1, x2, y2 );
@@ -134,10 +146,10 @@ function drawTape() {
 
         //  TANGENT UP / DOWN
 
-             let x3 = tapes[i].x + cos(angle-angle2)*wheelRadius/2;
-             let y3 = tapes[i].y + sin(angle-angle2)*wheelRadius/2;
-             let x4 =  tapes[i+1].x - cos(angle-angle2)*wheelRadius/2;
-             let y4 =  tapes[i+1].y - sin(angle-angle2)*wheelRadius/2;
+             let x3 = tapes[i].x + cos(angle-angle2)*wheelRadius;
+             let y3 = tapes[i].y + sin(angle-angle2)*wheelRadius;
+             let x4 =  tapes[i+1].x - cos(angle-angle2)*wheelRadius;
+             let y4 =  tapes[i+1].y - sin(angle-angle2)*wheelRadius;
 
 
        line (x3, y3, x4, y4 );
@@ -149,10 +161,10 @@ function drawTape() {
         //  TANGENT DOWN / UP
 
 
-             let x5 = tapes[i].x + cos(angle+angle2)*wheelRadius/2;
-             let y5 = tapes[i].y + sin(angle+angle2)*wheelRadius/2;
-             let x6 =  tapes[i+1].x - cos(angle+angle2)*wheelRadius/2;
-             let y6 =  tapes[i+1].y - sin(angle+angle2)*wheelRadius/2;
+             let x5 = tapes[i].x + cos(angle+angle2)*wheelRadius;
+             let y5 = tapes[i].y + sin(angle+angle2)*wheelRadius;
+             let x6 =  tapes[i+1].x - cos(angle+angle2)*wheelRadius;
+             let y6 =  tapes[i+1].y - sin(angle+angle2)*wheelRadius;
 
 
        line (x5, y5, x6, y6 );
@@ -164,10 +176,10 @@ function drawTape() {
         //  TANGENT BELOW
 
 
-             let x7 = tapes[i].x - sin(angle)*wheelRadius/2;
-             let y7 = tapes[i].y + cos(angle)*wheelRadius/2;
-             let x8 =  tapes[i+1].x - sin(angle)*wheelRadius/2;
-             let y8 =  tapes[i+1].y + cos(angle)*wheelRadius/2;
+             let x7 = tapes[i].x - sin(angle)*wheelRadius;
+             let y7 = tapes[i].y + cos(angle)*wheelRadius;
+             let x8 =  tapes[i+1].x - sin(angle)*wheelRadius;
+             let y8 =  tapes[i+1].y + cos(angle)*wheelRadius;
 
        line (x7, y7, x8, y8 );
 
@@ -229,14 +241,16 @@ function movePoint (sectionCross, crossDirection) {
 }
 
 function checkCrash () {
-  for (let k = 0; k< wheels.length; k++)
-  if ( dist(newWheel.x, newWheel.y, wheels[k].x, wheels[k].y) < wheelRadius)
+  for (let k = 0; k< wheels.length; k++) {
+  console.log(wheels.length)
+  if ( dist(newWheel.x, newWheel.y, wheels[k].x, wheels[k].y) < wheelRadius*2)
   {
-    console.log("crash")
+    console.log("crash: ", k)
     theta += Math.PI/2;
     return true
   }
   else return false
+}
 }
 
 //function checkGameStatus() {
