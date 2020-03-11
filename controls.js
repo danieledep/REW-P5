@@ -1,3 +1,19 @@
+let gamePaused = false;
+
+function createUI (){
+
+  scoreElem = createDiv('Score = 0');
+  scoreElem.position(20, 20);
+  scoreElem.id = 'score';
+  scoreElem.style('color', 'white');
+
+};
+
+function drawBar () {
+  rectMode(CORNER);
+  rect(20, 50, barLength-(timer.normalized()*barLength),10);
+}
+
 function checkButton () {
 
   if (keyIsDown(65)) {
@@ -9,11 +25,13 @@ function checkButton () {
 }
 
 function mouseClicked() {
-  if (speed === 0) {
-    speed = 2;
+  if (gamePaused) {
+    //speed = 2;
+    gamePaused = false;
     timer.restartTimer();
   } else {
-    speed = 0;
+    //speed = 0;
+    gamePaused = true;
     timer.pauseTimer();
   }
 }
