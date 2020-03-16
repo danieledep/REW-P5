@@ -1,36 +1,62 @@
-let gamePaused = false;
+let gamePaused = false,
+    scoreElem,
+    barLength = 100;
+
 
 function createUI (){
 
-  scoreElem = createDiv('Score = 0');
-  scoreElem.position(20, 20);
+  scoreElem = createDiv('TAPE UNROLLED: 0');
+  //scoreElem.position(widthScreen/2-barLength/2, heightScreen-65);
   scoreElem.id = 'score';
-  scoreElem.style('color', 'white');
+  scoreElem.style('color', 'black');
+  scoreElem.style('font-family', 'Share Tech Mono');
+  scoreElem.style('position', 'absolute')
+  scoreElem.style('left', 'calc(50%-50px)')
+  scoreElem.style('top', + (heightScreen-65) + 'px')
+}
 
-};
+function updateUI () {
 
-function drawBar () {
   rectMode(CORNER);
-  rect(20, 50, barLength-(timer.normalized()*barLength),10);
+  fill(0);
+  rect(widthScreen/2-barLength/2,heightScreen-100, barLength-(timer.normalized()*barLength),15);
+  stroke(0);
+  noFill();
+  rect(widthScreen/2-barLength/2-2,heightScreen-100-2, barLength,17);
+
+  scoreElem.html('TAPE UNROLLED: ' + somma + 'CM');
 }
 
 function checkButton () {
 
-  if (keyIsDown(65)) {
+  if (keyIsDown(65))
+    {
       theta += 0.1;
     }
-  if (keyIsDown(68)) {
+    if (keyIsDown(37))
+      {
+        theta += 0.1;
+      }
+
+  if (keyIsDown(68))
+    {
       theta -= 0.1;
     }
+  if (keyIsDown(39))
+    {
+      theta -= 0.1;
+    }
+
+    return false; // prevent any default behavior
 }
+
+
 
 function mouseClicked() {
   if (gamePaused) {
-    //speed = 2;
     gamePaused = false;
     timer.restartTimer();
   } else {
-    //speed = 0;
     gamePaused = true;
     timer.pauseTimer();
   }
@@ -41,3 +67,11 @@ function mousePressed() {
 
 function mouseReleased() {
 }
+
+//function checkGameStatus() {
+//  if () {
+//    noLoop();
+ //   const scoreVal = parseInt(scoreElem.html().substring(8));
+ //   scoreElem.html('Game ended! Your score was : ' + scoreVal);
+ // }
+//}

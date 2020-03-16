@@ -1,4 +1,4 @@
-let wheelDuration = 3000,
+let wheelDuration = 5000,
     timer;
 
 

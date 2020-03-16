@@ -52,7 +52,7 @@ class Circle {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.rSquared = 2* this.r * this.r;
+    this.rSquared = this.r * this.r;
   }
 
   contains(point) {
@@ -135,7 +135,7 @@ class QuadTree {
     if (this.points.length < this.capacity) {
       this.points.push(point);
       return true;
-    }
+    } 
 
     if (!this.divided) {
       this.subdivide();
@@ -148,7 +148,7 @@ class QuadTree {
   }
 
   query(range, found) {
-    stroke(0, 255, 0);
+    //stroke(0, 255, 0);
     //circle(range.x, range.y, range.rSquared, range.rSquared)
     if (!found) {
       found = [];
