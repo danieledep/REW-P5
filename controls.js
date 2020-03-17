@@ -22,6 +22,7 @@ function updateUI () {
   rect(widthScreen/2-barLength/2,heightScreen-100, barLength-(timer.normalized()*barLength),15);
   stroke(0);
   noFill();
+  strokeWeight(2);
   rect(widthScreen/2-barLength/2-2,heightScreen-100-2, barLength,17);
 
   scoreElem.html('TAPE UNROLLED: ' + somma + 'CM');

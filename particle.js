@@ -1,6 +1,6 @@
 
 let friction = 0.4,
-    initialSpeed = 4,
+    initialSpeed = 3,
     start = {
       x : widthScreen/2,
       y : heightScreen-150,

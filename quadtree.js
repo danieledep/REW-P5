@@ -135,7 +135,7 @@ class QuadTree {
     if (this.points.length < this.capacity) {
       this.points.push(point);
       return true;
-    } 
+    }
 
     if (!this.divided) {
       this.subdivide();
@@ -160,7 +160,8 @@ class QuadTree {
 
     for (let p of this.points) {
       if (range.contains(p)) {
-        //circle(range.x, range.y, wheelRadius , wheelRadius)
+        //fill(0)
+        //circle(range.x, range.y, wheelRadius*wheelRadius)
         found.push(p);
       }
     }
