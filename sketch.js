@@ -238,13 +238,17 @@ function moveLine () {
     tapes[i+3].update(rt.x2, rt.y2, false, tapes[i+3].wheelMov)
     let d2 = dist(rt.x1, rt.y1, rt.x2, rt.y2)
 
+    //distance tape in between tangents
+    let d12 = dist(lt.x2, lt.y2, rt.x1, rt.y1)
+
     let distanza = dist(lt.x1, lt.y1, rt.x2, rt.y2);
-    //console.log("d1+d2: ", d1+d2, " dist: ", distanza)
-     /*
-    //RELEASE WHEN COMING BACK
-    if (d1+d2- distanza < 0)
+    //console.log("d1+d2+d12: ", d1+d2+d12, " dist: ", distanza)
+    //console.log("tapes[i+1].cross: ", tapes[i+1].cross)
+
+
+    if (d1+d2+d12- distanza < 1)
       {
-          let crossingBack=0;
+          let crossingBack;
           // Translate everything so that line segment start point to (0, 0)
           let a = (tapes[i+3].x-tapes[i].x); // Line segment end point horizontal coordinate
           let b = (tapes[i+3].y-tapes[i].y); // Line segment end point vertical coordinate
@@ -260,21 +264,22 @@ function moveLine () {
                 (c*c + d*d <= wheelRadius*wheelRadius))
                 {
 
-
-              //console.log(l)
+                  crossingBack = 0
 
                // orientation computation
                    if (d*a - c*b < 0) {
                                     // Circle center is on left side looking from (x0, y0) to (x1, y1)
                                     crossingBack = 1;
                                     }
-                 //insertMovingPoint(p, sectionCross, crossDirection, j);
                 }
             }
-          if (crossingBack != tapes[i+1].cross ) tapes.splice(i+1, 2);
+          if (crossingBack != tapes[i+1].cross ) {
+                                      //console.log("release")
+                                      tapes.splice(i+1, 2);
+                                    }
+          //console.log("crossingBack: ", crossingBack)
+        }
 
-          //console.log("lascia")
-        } */
 }
 }
 }
