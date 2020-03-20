@@ -54,13 +54,7 @@ function checkButton () {
 
 
 function mouseClicked() {
-  if (gamePaused) {
-    gamePaused = false;
-    timer.restartTimer();
-  } else {
-    gamePaused = true;
-    timer.pauseTimer();
-  }
+  pause();
 }
 
 function mousePressed() {
@@ -69,10 +63,12 @@ function mousePressed() {
 function mouseReleased() {
 }
 
-//function checkGameStatus() {
-//  if () {
-//    noLoop();
- //   const scoreVal = parseInt(scoreElem.html().substring(8));
- //   scoreElem.html('Game ended! Your score was : ' + scoreVal);
- // }
-//}
+function pause() {
+  if (gamePaused) {
+    gamePaused = false;
+    timer.restartTimer();
+  } else {
+    gamePaused = true;
+    timer.pauseTimer();
+  }
+}

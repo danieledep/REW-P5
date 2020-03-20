@@ -10,6 +10,5 @@ body {
 }
 canvas {
   display: block;
-  background-color: #33B1FF;
   background-image: url("assets/cassette.png");
 }

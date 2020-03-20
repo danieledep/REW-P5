@@ -17,7 +17,11 @@ let widthScreen = 800,
     crossDirection=0,
     particles = [],
     targetArea,
-    somma;
+    somma,
+    bgColors =['#33B1FF', '#FD5361', '#4CB5AE',
+               '#BEEE62', '#36F1CD', '#F786AA',
+               '#1B998B', '#6369D1', '#FFCF56',
+               '#A0E8AF', '#F79824', '#FCEB00'];
 
 
     class Tape {
@@ -40,8 +44,8 @@ let widthScreen = 800,
 
 
 function setup() {
-  //img = loadImage('assets/wheel.png');
   createCanvas(widthScreen, heightScreen);
+  select('canvas').style('background-color', random(bgColors));
   createUI();
   timer= new Timer;
 
@@ -85,6 +89,7 @@ function draw() {
 
   checkCrash();
   updateUI();
+  //getCassetteData();
 
 
 }
