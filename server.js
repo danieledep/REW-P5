@@ -1,3 +1,7 @@
+// $ firmata-party uno --debug
+// $ node server.js
+
+
 // Setup basic express server + socket.io
 var express = require('express');
 var app = express();
