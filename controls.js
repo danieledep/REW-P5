@@ -32,31 +32,31 @@ function checkButton () {
 
   if (keyIsDown(65))
     {
-      theta += 0.1;
+      turnLeft()
     }
     if (keyIsDown(37))
       {
-        theta += 0.1;
+        turnLeft()
       }
 
   if (keyIsDown(68))
     {
-      theta -= 0.1;
+      turnRight()
     }
   if (keyIsDown(39))
     {
-      theta -= 0.1;
+      turnRight()
     }
 
     return false; // prevent any default behavior
 }
 
 
-
+/*
 function mouseClicked() {
   pause();
 }
-
+*/
 function mousePressed() {
 }
 
@@ -71,4 +71,12 @@ function pause() {
     gamePaused = true;
     timer.pauseTimer();
   }
+}
+
+function turnLeft() {
+  theta += 0.1;
+}
+
+function turnRight() {
+  theta -= 0.1;
 }
