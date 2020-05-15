@@ -10,7 +10,7 @@ body {
 }
 canvas {
   display: block;
-  background-image: url("assets/cassette.png");
+  background-image: url("cassette.png");
 }
 
 #mobile {display: none;}
