@@ -70,6 +70,7 @@ function setup() {
   let tapeRight = new Tape(tapeEnd.x, tapeEnd.y, 0, false, 1);
   tapes.push(tapeLeft, tapeRight);
 
+  alert("Hi :) Use arrows ← → to turn left and right and click anywhere to pause game");
 }
 
 
