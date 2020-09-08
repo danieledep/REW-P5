@@ -70,13 +70,11 @@ function setup() {
   let tapeRight = new Tape(tapeEnd.x, tapeEnd.y, 0, false, 1);
   tapes.push(tapeLeft, tapeRight);
 
-  alert("Hi :) Use arrows ← → to turn left and right and click anywhere to pause game");
 }
 
 
 function draw() {
   clear();
-  //background(220);
   //DEBUG QTREE
   //qtree.show();
 
@@ -87,7 +85,6 @@ function draw() {
 
   drawTape();
   drawWheels();
-
 
   checkCrash();
   updateUI();
@@ -153,12 +150,14 @@ function drawTape() {
   strokeWeight(2);
   stroke(0);
   somma = 0;
+
   //draw static tape
   for (let i = 0; i<tapes.length-1; i++) {
   somma += int((dist(tapes[i].x, tapes[i].y, tapes[i+1].x, tapes[i+1].y))/40)
 
   //don't draw the segments connecting behind wheels
-  if (tapes[i].wheelMov != tapes[i+1].wheelMov) line (tapes[i].x, tapes[i].y, tapes[i+1].x, tapes[i+1].y );
+  if (tapes[i].wheelMov != tapes[i+1].wheelMov) 
+    line (tapes[i].x, tapes[i].y, tapes[i+1].x, tapes[i+1].y );
   }
 }
 
@@ -173,7 +172,9 @@ for (let j = 0; (j< particles.length); j++) {
 
   // check if it's passing between tapes points
   for (let l = 0; (l< tapes.length-1); l++) {
-  // only between those that are not moving
+
+  // only between those that are not already moved by the particle
+  // & not the tape connector behind wheels
   if ((tapes[l].wheelMov != j) &&  (tapes[l+1].wheelMov != j)  && (tapes[l].wheelMov != tapes[l+1].wheelMov )) {
 
   let crossDirection = 0;
@@ -218,7 +219,7 @@ function moveLine () {
     if ((particles[tapes[i+1].wheelMov].moving) &&  (particles[tapes[i+1].wheelMov].moving) && (tapes[i+1].wheelMov == tapes[i+2].wheelMov)) {
 
 
-  //console.log("movieLine: ", i, " - ", i+1)
+  //console.log("moveLine: ", i, " - ", i+1)
   //let q = particles[tapes[ind].wheelMov]
   let leftWheel= new Particle (),
       rightWheel= new Particle(),

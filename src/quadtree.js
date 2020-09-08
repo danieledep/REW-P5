@@ -184,6 +184,8 @@ class QuadTree {
   for (let p of this.points) {
     strokeWeight(2);
     point(p.x, p.y);
+    strokeWeight(1);
+    text('p.x, p.y', p.x , p.y);
   }
 
   if (this.divided) {
