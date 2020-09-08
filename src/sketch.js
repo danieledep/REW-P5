@@ -168,8 +168,9 @@ function drawTape() {
 function checkCross() {
   // for each wheel - particle
   for (let j = 0; j < particles.length; j++) {
-    let p = new Particle();
-    Object.assign(p, particles[j]);
+    //let p = new Particle();
+    //Object.assign(p, particles[j]);
+    const p = particles[j];
 
     // check if it's passing between tapes points
     for (let l = 0; l < tapes.length - 1; l++) {
@@ -220,17 +221,14 @@ function moveLine() {
     //draw dinamic tape
     if (
       particles[tapes[i + 1].wheelMov].moving &&
-      particles[tapes[i + 1].wheelMov].moving &&
       tapes[i + 1].wheelMov == tapes[i + 2].wheelMov
     ) {
       //console.log("moveLine: ", i, " - ", i+1)
       //let q = particles[tapes[ind].wheelMov]
-      let leftWheel = new Particle(),
-        rightWheel = new Particle(),
-        q = new Particle();
-      Object.assign(q, particles[tapes[i + 1].wheelMov]);
-      Object.assign(leftWheel, particles[tapes[i].wheelMov]);
-      Object.assign(rightWheel, particles[tapes[i + 3].wheelMov]);
+
+        const q = particles[tapes[i + 1].wheelMov];
+        const leftWheel = particles[tapes[i].wheelMov];
+        const rightWheel = particles[tapes[i + 3].wheelMov];
 
       //DEBUG
       //strokeWeight(0);
@@ -304,11 +302,9 @@ function moveLine() {
 }
 
 function insertMovingPoint(point, sectionCross, crossDirection, wheelCross) {
-  let leftWheel = new Particle(),
-    rightWheel = new Particle();
 
-  Object.assign(leftWheel, particles[tapes[sectionCross].wheelMov]);
-  Object.assign(rightWheel, particles[tapes[sectionCross + 1].wheelMov]);
+  const leftWheel = particles[tapes[sectionCross].wheelMov];
+  const rightWheel = particles[tapes[sectionCross + 1].wheelMov];
 
   let lt = calculateTangent(
     leftWheel,
