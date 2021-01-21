@@ -8,7 +8,7 @@
     "firmata-party": "^2.0.0",
     "html": "^1.0.0",
     "johnny-five": "^1.4.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   },
   "devDependencies": {},
   "scripts": {
