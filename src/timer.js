@@ -1,4 +1,4 @@
-let wheelDuration = 15000,
+let wheelDuration = 8000,
   timer;
 
 class Timer {
