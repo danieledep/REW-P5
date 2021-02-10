@@ -12,13 +12,13 @@ function createUI() {
   scoreElem.style("left", "calc(50%-50px)");
   scoreElem.style("top", +(heightScreen - 65) + "px");
 
-  leftButton = createButton("⤷");
+  leftButton = createButton("<");
   leftButton.mousePressed(turnLeft);
   leftButton.mouseReleased(releaseLeftButton);
   leftButton.addClass('controls');
   leftButton.style("left", "calc(50% - 90px)");
 
-  rightButton = createButton("⤶");
+  rightButton = createButton(">");
   rightButton.mousePressed(turnRight);
   rightButton.mouseReleased(releaseRightButton);
   rightButton.addClass('controls');
@@ -27,7 +27,8 @@ function createUI() {
   pauseButton = createButton("||");
   pauseButton.mousePressed(pause);
   pauseButton.addClass('controls');
-  pauseButton.style("font-size", "20px");
+  pauseButton.style("font-size", "22px");
+  pauseButton.style("font-bold", "bolder");
   pauseButton.style("left", "calc(50% + 50px)");
 
 }
