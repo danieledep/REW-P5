@@ -11,7 +11,7 @@
 
 /* Or input[type=submit] depending on your needs */
 span, input, button { 
-  font-family: 'Share Tech Mono'; /* Your font here */
+  font-family: 'Share Tech Mono', monospace; /* Your font here */
 }
 
  
@@ -41,7 +41,7 @@ button {
 
 .controls {
 
-  font-family: "Share Tech Mono" !important;
+  font-family: 'Share Tech Mono', monospace !important;
   position: absolute;
   width: 60px;
   height: 60px;
@@ -49,16 +49,15 @@ button {
   font-size: 35px;
   top: calc( var(--heightScreen) + 40px );
   background-color: white;
-  transform: rotate(180deg);
   border: 2px solid;
   border-radius: 10px;
-  box-shadow: 0px -8px black;
+  box-shadow: 0px 8px black;
 
 }
 
 .buttonPressed {
 
-  box-shadow: 0px -2px black !important;
+  box-shadow: 0px 4px black !important;
   top: calc( var(--heightScreen) + 46px ) !important;
 
 }
