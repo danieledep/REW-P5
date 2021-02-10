@@ -1,4 +1,24 @@
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+ :root {
+  --heightScreen: 540px;
+  --widthScreen: 800px;
+}
+
+
+/* Or input[type=submit] depending on your needs */
+span, input, button { 
+  font-family: 'Share Tech Mono'; /* Your font here */
+}
+
+ 
 body {
+
+  font-family: 'Share Tech Mono', monospace !important;
+
   margin: 0;
   display: flex;
 
@@ -11,4 +31,34 @@ body {
 canvas {
   display: block;
   background-image: url("cassette.png");
+}
+
+button {
+
+  font-family : inherit !important;
+
+}
+
+.controls {
+
+  font-family: "Share Tech Mono" !important;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  color: black;
+  font-size: 35px;
+  top: calc( var(--heightScreen) + 40px );
+  background-color: white;
+  transform: rotate(180deg);
+  border: 2px solid;
+  border-radius: 10px;
+  box-shadow: 0px -8px black;
+
+}
+
+.buttonPressed {
+
+  box-shadow: 0px -2px black !important;
+  top: calc( var(--heightScreen) + 46px ) !important;
+
 }
