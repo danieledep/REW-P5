@@ -12,28 +12,3 @@ canvas {
   display: block;
   background-image: url("cassette.png");
 }
-
-#mobile {display: none;}
-
-@media screen and (max-width: 768px) {
-
-  #mobile {
-    display: block;
-  }
-
-.turn-left {
-  position: absolute;
-  width: 20vw;
-  height: 100vh;
-  left: 0;
-  z-index: 10;
-}
-
-.turn-right {
-  position: absolute;
-  width: 20vw;
-  height: 100vh;
-  right: 0;
-  z-index: 10;
-}
-  }
