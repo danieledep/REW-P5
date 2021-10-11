@@ -4,4 +4,4 @@ A new chapter of the same music cassette whose tape keeps on unrolling out of pl
 
 Use A and D or LEFT ARROW and RIGHT ARROW tu turn the wheel, and click anywhere to pause/unpause.
 
-![screenshot](https://github.com/danieledep/REW_P5/blob/master/assets/Screenshot.png)
+![screenshot](https://github.com/danieledep/REW_P5/blob/master/assets/Screenshot-10-11-2021.png)
