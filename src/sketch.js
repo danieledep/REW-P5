@@ -1,7 +1,7 @@
 p5.disableFriendlyErrors = true; // disables FES
 
 let widthScreen = 800,
-  heightScreen = 540,
+  heightScreen = 590,
   wheelRadius = 15,
   tapeStart = {
     x: widthScreen / 3,
@@ -75,6 +75,8 @@ function setup() {
   let tapeLeft = new Tape(tapeStart.x, tapeStart.y, 0, false, 0);
   let tapeRight = new Tape(tapeEnd.x, tapeEnd.y, 0, false, 1);
   tapes.push(tapeLeft, tapeRight);
+
+  pause();
 }
 
 function draw() {
@@ -103,18 +105,22 @@ function createNewWheel() {
 
 function checkTimer() {
   if (timer.isFinished()) {
-    for (let p of particles) {
-      if (p.moving) {
-        let point = new Point(p.x, p.y, p);
-        qtree.insert(point);
-      }
-      p.speed = 0;
-      p.moving = false;
-    }
-    for (let w of tapes) w.moving = false;
-    //qtree = new QuadTree(boundary,4);
-    createNewWheel();
+    stopWheels();
   }
+}
+
+function stopWheels() {
+  for (let p of particles) {
+    if (p.moving) {
+      let point = new Point(p.x, p.y, p);
+      qtree.insert(point);
+    }
+    p.speed = 0;
+    p.moving = false;
+  }
+  for (let w of tapes) w.moving = false;
+  //qtree = new QuadTree(boundary,4);
+  createNewWheel();
 }
 
 function drawWheels() {
@@ -226,9 +232,9 @@ function moveLine() {
       //console.log("moveLine: ", i, " - ", i+1)
       //let q = particles[tapes[ind].wheelMov]
 
-        const q = particles[tapes[i + 1].wheelMov];
-        const leftWheel = particles[tapes[i].wheelMov];
-        const rightWheel = particles[tapes[i + 3].wheelMov];
+      const q = particles[tapes[i + 1].wheelMov];
+      const leftWheel = particles[tapes[i].wheelMov];
+      const rightWheel = particles[tapes[i + 3].wheelMov];
 
       //DEBUG
       //strokeWeight(0);
@@ -302,7 +308,6 @@ function moveLine() {
 }
 
 function insertMovingPoint(point, sectionCross, crossDirection, wheelCross) {
-
   const leftWheel = particles[tapes[sectionCross].wheelMov];
   const rightWheel = particles[tapes[sectionCross + 1].wheelMov];
 
