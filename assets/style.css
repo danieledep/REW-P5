@@ -1,23 +1,21 @@
-
 /**
  * Correct the inability to style clickable types in iOS and Safari.
  */
 
- :root {
-  --heightScreen: 540px;
+:root {
+  --heightScreen: 590px;
   --widthScreen: 800px;
 }
 
-
 /* Or input[type=submit] depending on your needs */
-span, input, button { 
-  font-family: 'Share Tech Mono', monospace; /* Your font here */
+span,
+input,
+button {
+  font-family: "Share Tech Mono", monospace; /* Your font here */
 }
 
- 
 body {
-
-  font-family: 'Share Tech Mono', monospace !important;
+  font-family: "Share Tech Mono", monospace !important;
 
   margin: 0;
   display: flex;
@@ -30,34 +28,29 @@ body {
 }
 canvas {
   display: block;
-  background-image: url("cassette.png");
+  background-image: url("cassette-depth.png");
 }
 
 button {
-
-  font-family : inherit !important;
-
+  font-family: inherit !important;
 }
 
 .controls {
-
-  font-family: 'Share Tech Mono', monospace !important;
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  color: black;
+  font-family: "Share Tech Mono", monospace !important;
   font-size: 35px;
-  top: calc( var(--heightScreen) + 40px );
+  position: absolute;
+  width: auto;
+  height: auto;
+  color: black;
+  top: calc(var(--heightScreen) + 40px);
+  padding: 0px 6px;
   background-color: white;
-  border: 2px solid;
+  border: 0px solid;
   border-radius: 10px;
-  box-shadow: 0px 8px black;
-
+  box-shadow: 0 0 0 2px black, 0px 16px white, 0px 16px 0px 2px black;
 }
 
 .buttonPressed {
-
-  box-shadow: 0px 4px black !important;
-  top: calc( var(--heightScreen) + 46px ) !important;
-
+  box-shadow: 0 0 0 2px black, 0px 8px white, 0px 8px 0px 2px black !important;
+  top: calc(var(--heightScreen) + 48px) !important;
 }
