@@ -84,6 +84,11 @@ function checkButton() {
     return;
   }
 
+  if (keyIsDown(38) || keyIsDown(87)) {
+    ejectWheel();
+    return;
+  }
+
   if (leftPressed) turnLeft();
   if (rightPressed) turnRight();
 
@@ -97,6 +102,10 @@ function keyReleased() {
 
   if (keyCode === 68 || keyCode === 39) {
     releaseRightButton();
+  }
+
+  if (keyCode === 38 || keyCode === 87) {
+    releaseEjectWheelButton();
   }
 
   return false; // prevent any default behavior

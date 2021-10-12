@@ -5,6 +5,7 @@ A new chapter of the same music cassette whose tape keeps on unrolling out of pl
 ## Controls
 - <kbd>&#8592;</kbd> or <kbd>A</kbd> to make the wheel turn left
 - <kbd>&#8594;</kbd> or <kbd>D</kbd> to make the wheel turn right
+- <kbd>&#8593;</kbd> or <kbd>W</kbd> to eject a new wheel
 - <kbd>Space</kbd> or <kbd>Left click</kbd> to pause/unpause the game   
 
 ## To-dos
