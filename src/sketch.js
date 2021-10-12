@@ -174,8 +174,10 @@ function drawTape() {
 function checkCross() {
   // for each wheel - particle
   for (let j = 0; j < particles.length; j++) {
-    //let p = new Particle();
-    //Object.assign(p, particles[j]);
+    // let p = new Particle();
+    // Object.assign(p, particles[j]);
+    // removed because of performance issues
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
     const p = particles[j];
 
     // check if it's passing between tapes points
