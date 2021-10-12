@@ -16,5 +16,6 @@ A new chapter of the same music cassette whose tape keeps on unrolling out of pl
 - [ ] fix performance issues when there are lots of wheels, compare with [this algorithm](https://github.com/davidfig/intersects/blob/master/line-circle.js)
 - [ ] wheel speed should go faster as game advance
 - [ ] add sound effects
+- [ ] build hardware controller
 
 ![screenshot](https://github.com/danieledep/REW_P5/blob/master/assets/Screenshot-10-11-2021.png)
