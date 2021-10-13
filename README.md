@@ -13,7 +13,7 @@ A new chapter of the same music cassette whose tape keeps on unrolling out of pl
 
 ## To-dos
 - [ ] add record button ⏺ to save a screenshot
-- [ ] fix spacebar glitching
+- [ ] fix spacebar flickering
 - [ ] make controls work well on mobile
 - [ ] fix bouncing direction from the walls by using polar coordinates
 - [ ] when intersecting tape update tape also for wheel n-1 and n+1
