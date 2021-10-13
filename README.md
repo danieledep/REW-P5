@@ -8,6 +8,9 @@ A new chapter of the same music cassette whose tape keeps on unrolling out of pl
 - <kbd>&#8593;</kbd> or <kbd>W</kbd> to eject a new wheel
 - <kbd>Space</kbd> or <kbd>Left click</kbd> to pause/unpause the game   
 
+
+![screenshot](https://github.com/danieledep/REW_P5/blob/master/assets/Screenshot-10-11-2021.png)
+
 ## To-dos
 - [ ] add record button ⏺ to save a screenshot
 - [ ] fix spacebar glitching
@@ -19,4 +22,3 @@ A new chapter of the same music cassette whose tape keeps on unrolling out of pl
 - [ ] add sound effects
 - [ ] build hardware controller
 
-![screenshot](https://github.com/danieledep/REW_P5/blob/master/assets/Screenshot-10-11-2021.png)
