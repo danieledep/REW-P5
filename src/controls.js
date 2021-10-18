@@ -169,6 +169,7 @@ function releaseRestartButton() {
 
 function releaseEjectWheelButton() {
   if (gamePaused) unpauseGame();
+  console.log(particles.length);
   stopWheels();
   newWheelButton.removeClass("buttonPressed");
 }
