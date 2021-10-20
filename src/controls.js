@@ -171,7 +171,7 @@ function releaseEjectWheelButton() {
   if (gamePaused) unpauseGame();
 
   // if ejecting instead of playing the first wheel
-  if (particles.at(-1).x == start.x && particles.at(-1).x == start.y)
+  if (particles.at(-1).x == start.x && particles.at(-1).y == start.y)
     unpauseGame();
   else stopWheels();
 
