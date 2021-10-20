@@ -13,7 +13,7 @@ function createUI() {
   scoreElem.style("color", "black");
   scoreElem.style("position", "absolute");
   scoreElem.style("left", "calc(50%-50px)");
-  scoreElem.style("top", +(heightScreen - 105) + "px");
+  scoreElem.style("top", +(heightScreen - 108) + "px");
 
   leftButton = createButton("⬅️");
   leftButton.mousePressed(turnLeft);
