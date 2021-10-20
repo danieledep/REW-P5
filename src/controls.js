@@ -170,8 +170,9 @@ function releaseRestartButton() {
 function releaseEjectWheelButton() {
   if (gamePaused) unpauseGame();
 
+  console.log(gamePaused);
   // if ejecting instead of playing the first wheel
-  if ((particles.length == 3) && (gamePaused)) unpauseGame();
+  if (particles.length == 3 && gamePaused) unpauseGame();
   else stopWheels();
 
   newWheelButton.removeClass("buttonPressed");
