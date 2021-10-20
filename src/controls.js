@@ -13,7 +13,7 @@ function createUI() {
   scoreElem.style("color", "black");
   scoreElem.style("position", "absolute");
   scoreElem.style("left", "calc(50%-50px)");
-  scoreElem.style("top", +(heightScreen - 108) + "px");
+  scoreElem.style("top", +(heightScreen - 109) + "px");
 
   leftButton = createButton("⬅️");
   leftButton.mousePressed(turnLeft);
@@ -171,7 +171,7 @@ function releaseEjectWheelButton() {
   if (gamePaused) unpauseGame();
 
   // if ejecting instead of playing the first wheel
-  if (particles.length == 3) unpauseGame();
+  if ((particles.length == 3) && (gamePaused)) unpauseGame();
   else stopWheels();
 
   newWheelButton.removeClass("buttonPressed");
