@@ -1,6 +1,6 @@
 # ➿REW-p5
 Porting and upgrade of [REW](https://github.com/danieledep/REW) game from Processing to P5.js.
-A new chapter of the same music cassette whose tape keeps on unrolling out of place until some brave spinning wheels will find its way to harness the tape. It has performance issues to fix.
+A new chapter of the same music cassette whose tape keeps unrolling out of place until some brave spinning wheels will find its way to harness the tape. It has performance issues to fix.
 
 ## Controls
 - <kbd>&#8592;</kbd> or <kbd>A</kbd> to make the wheel turn left
