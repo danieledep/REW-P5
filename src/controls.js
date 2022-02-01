@@ -44,6 +44,12 @@ function createUI() {
   restartButton.mouseReleased(releaseRestartButton);
   restartButton.addClass("controls");
   restartButton.style("left", "calc(50% + 115px)");
+
+  screenshotButton = createButton("⏺");
+  screenshotButton.mousePressed(screenshotPage);
+  screenshotButton.mouseReleased(releaseScreenshotButton);
+  screenshotButton.addClass("controls");
+  screenshotButton.style("left", "calc(50% + 185px)");
 }
 
 function updateUI() {
@@ -89,6 +95,11 @@ function checkButton() {
     return;
   }
 
+  if (keyIsDown(82)) {
+    screenshotPage();
+    return;
+  }
+
   if (leftPressed) turnLeft();
   if (rightPressed) turnRight();
 
@@ -106,6 +117,10 @@ function keyReleased() {
 
   if (keyCode === 38 || keyCode === 87) {
     releaseEjectWheelButton();
+  }
+
+  if (keyCode === 82) {
+    releaseScreenshotButton();
   }
 
   return false; // prevent any default behavior
@@ -135,12 +150,14 @@ function unpauseGame() {
 
 function turnLeft() {
   theta += 0.1;
+  theta = theta % (2 * PI);
   leftPressed = true;
   leftButton.addClass("buttonPressed");
 }
 
 function turnRight() {
   theta -= 0.1;
+  theta = theta % (2 * PI);
   rightPressed = true;
   rightButton.addClass("buttonPressed");
 }
@@ -151,6 +168,11 @@ function restartPage() {
 
 function ejectWheel() {
   newWheelButton.addClass("buttonPressed");
+}
+
+function screenshotPage() {
+  // saveCanvas('myCanvas', 'png');
+  screenshotButton.addClass("buttonPressed");
 }
 
 function releaseLeftButton() {
@@ -176,4 +198,8 @@ function releaseEjectWheelButton() {
   else stopWheels();
 
   newWheelButton.removeClass("buttonPressed");
+}
+
+function releaseScreenshotButton() {
+  screenshotButton.removeClass("buttonPressed");
 }

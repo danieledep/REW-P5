@@ -52,27 +52,24 @@ class Particle {
 
   exits() {
     if (this.moving) {
-      //console.log(m)
+      
       if (this.x < 0 + wheelRadius) {
-        let m = this.calculateM();
         this.x = max(0 + wheelRadius, this.x);
-        theta += (m * PI) / 2;
+        theta = PI - theta ;
       }
       if (this.x > widthScreen - wheelRadius) {
-        let m = this.calculateM();
         this.x = min(widthScreen - wheelRadius, this.x);
-        theta += (m * PI) / 2;
+        theta = PI - theta;
       }
       if (this.y > heightScreen - wheelRadius) {
-        let m = this.calculateM();
         this.y = min(heightScreen - wheelRadius, this.y);
-        theta -= (m * PI) / 2;
+        theta = 2 * PI - theta;
       }
       if (this.y < 0 + wheelRadius) {
-        let m = this.calculateM();
         this.y = max(0 + wheelRadius, this.y);
-        theta -= (m * PI) / 2;
+        theta = 2 * PI - theta;
       }
+
       //html image
       this.img.position(this.x - wheelRadius, this.y - wheelRadius);
       //setTimeout(1000);
@@ -96,17 +93,6 @@ class Particle {
     other.y = targetY;
     //html image
     other.img.position(targetX - wheelRadius, targetY - wheelRadius);
-  }
-
-  calculateM() {
-    let m = Math.sin(theta) / Math.cos(theta);
-    if (abs(m) > 3 || abs(m) < 0.2) m = 2;
-    else
-      m =
-        Math.sin(theta) /
-        Math.cos(theta) /
-        abs(Math.sin(theta) / Math.cos(theta));
-    return m;
   }
 
   render(idx) {
