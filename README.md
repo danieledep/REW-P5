@@ -15,7 +15,7 @@ A new chapter of the same music cassette whose tape keeps unrolling out of place
 - [ ] add record button ⏺ to save a screenshot
 - [ ] fix spacebar flickering (debouncing)
 - [ ] make controls work well on mobile
-- [ ] fix bouncing direction from the walls by using polar coordinates
+- [x] fix bouncing direction bug
 - [ ] when intersecting tape update tape also for wheel n-1 and n+1
 - [ ] fix performance issues when there are lots of wheels, compare with [this algorithm](https://github.com/davidfig/intersects/blob/master/line-circle.js)
 - [ ] wheel speed should go faster as game advance
