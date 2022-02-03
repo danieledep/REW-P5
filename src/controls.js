@@ -23,6 +23,8 @@ function createUI() {
   leftButton = createButton("⬅️");
   leftButton.mousePressed(turnLeft);
   leftButton.mouseReleased(releaseLeftButton);
+  leftButton.touchStarted(turnLeft);
+  leftButton.touchEnded(releaseLeftButton);
   leftButton.addClass("button");
   leftButton.parent(leftButtonContainer);
 
@@ -32,6 +34,7 @@ function createUI() {
 
   pauseButton = createButton("▶️");
   pauseButton.mousePressed(pause);
+  pauseButton.touchStarted(pause);
   pauseButton.addClass("button");
   pauseButton.style("font-bold", "bolder");
   pauseButton.parent(pauseButtonContainer);
@@ -43,6 +46,8 @@ function createUI() {
   rightButton = createButton("➡️");
   rightButton.mousePressed(turnRight);
   rightButton.mouseReleased(releaseRightButton);
+  rightButton.touchStarted(turnRight);
+  rightButton.touchEnded(releaseRightButton);
   rightButton.addClass("button");
   rightButton.parent(rightButtonContainer);
 
@@ -53,6 +58,8 @@ function createUI() {
   newWheelButton = createButton("⏏️");
   newWheelButton.mousePressed(ejectWheel);
   newWheelButton.mouseReleased(releaseEjectWheelButton);
+  newWheelButton.touchStarted(ejectWheel);
+  newWheelButton.touchEnded(releaseEjectWheelButton);
   newWheelButton.addClass("button");
   newWheelButton.parent(newWheelButtonContainer);
 
@@ -63,6 +70,8 @@ function createUI() {
   restartButton = createButton("🔄");
   restartButton.mousePressed(restartPage);
   restartButton.mouseReleased(releaseRestartButton);
+  restartButton.touchStarted(restartPage);
+  restartButton.touchEnded(releaseRestartButton);
   restartButton.addClass("button");
   restartButton.parent(restartButtonContainer);
 
@@ -73,6 +82,8 @@ function createUI() {
   screenshotButton = createButton("⏺");
   screenshotButton.mousePressed(screenshotPage);
   screenshotButton.mouseReleased(releaseScreenshotButton);
+  screenshotButton.touchStarted(screenshotPage);
+  screenshotButton.touchEnded(releaseScreenshotButton);
   screenshotButton.addClass("button");
   screenshotButton.parent(screenshotButtonContainer);
 }
