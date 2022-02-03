@@ -7,42 +7,30 @@
   --widthScreen: 800px;
 }
 
-/* Or input[type=submit] depending on your needs */
-span,
-input,
-button {
-  font-family: "Share Tech Mono", monospace; /* Your font here */
-}
-
 body {
   font-family: "Share Tech Mono", monospace !important;
-
   margin: 0;
-  display: flex;
-
-  /* This centers our sketch horizontally. */
-  justify-content: center;
-
-  /* This centers our sketch vertically. */
-  align-items: center;
+  width: 100%;
 }
+
 canvas {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
   background-image: url("cassette-depth.png");
 }
 
-button {
-  font-family: inherit !important;
+.scoreElement {
+  position: absolute;
+  color: black;
+  left: 50%;
+  transform: translate(-50%, -106px);
 }
 
-.controls {
-  font-family: "Share Tech Mono", monospace !important;
-  font-size: 35px;
+.button {
   position: absolute;
-  width: auto;
-  height: auto;
+  font-size: 35px;
   color: black;
-  top: calc(var(--heightScreen) + 40px);
   padding: 0px 6px;
   background-color: white;
   border: 0px solid;
@@ -52,5 +40,18 @@ button {
 
 .buttonPressed {
   box-shadow: 0 0 0 2px black, 0px 8px white, 0px 8px 0px 2px black !important;
-  top: calc(var(--heightScreen) + 48px) !important;
+  top: 8px !important;
 }
+
+.controlsContainer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonContainer {
+  width: 80px;
+  height: 60px;
+  position: relative;
+}
+

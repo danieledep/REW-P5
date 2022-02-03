@@ -10,46 +10,71 @@ let gamePaused = false,
 function createUI() {
   scoreElem = createDiv("TAPE UNROLLED: 0");
   scoreElem.id = "score";
-  scoreElem.style("color", "black");
-  scoreElem.style("position", "absolute");
-  scoreElem.style("left", "calc(50%-50px)");
-  scoreElem.style("top", +(heightScreen - 109) + "px");
+  scoreElem.addClass("scoreElement");
+
+  controlsContainer = createDiv();
+  controlsContainer.addClass("controlsContainer");
+
+
+  leftButtonContainer = createDiv();
+  leftButtonContainer.addClass("buttonContainer");
+  leftButtonContainer.parent(controlsContainer);
 
   leftButton = createButton("⬅️");
   leftButton.mousePressed(turnLeft);
   leftButton.mouseReleased(releaseLeftButton);
-  leftButton.addClass("controls");
-  leftButton.style("left", "calc(50% - 165px)");
+  leftButton.addClass("button");
+  leftButton.parent(leftButtonContainer);
+
+  pauseButtonContainer = createDiv();
+  pauseButtonContainer.addClass("buttonContainer");
+  pauseButtonContainer.parent(controlsContainer);
 
   pauseButton = createButton("▶️");
   pauseButton.mousePressed(pause);
-  pauseButton.addClass("controls");
+  pauseButton.addClass("button");
   pauseButton.style("font-bold", "bolder");
-  pauseButton.style("left", "calc(50% - 95px)");
+  pauseButton.parent(pauseButtonContainer);
+
+  rightButtonContainer = createDiv();
+  rightButtonContainer.addClass("buttonContainer");
+  rightButtonContainer.parent(controlsContainer);
 
   rightButton = createButton("➡️");
   rightButton.mousePressed(turnRight);
   rightButton.mouseReleased(releaseRightButton);
-  rightButton.addClass("controls");
-  rightButton.style("left", "calc(50% - 25px)");
+  rightButton.addClass("button");
+  rightButton.parent(rightButtonContainer);
+
+  newWheelButtonContainer = createDiv();
+  newWheelButtonContainer.addClass("buttonContainer");
+  newWheelButtonContainer.parent(controlsContainer);
 
   newWheelButton = createButton("⏏️");
   newWheelButton.mousePressed(ejectWheel);
   newWheelButton.mouseReleased(releaseEjectWheelButton);
-  newWheelButton.addClass("controls");
-  newWheelButton.style("left", "calc(50% + 45px)");
+  newWheelButton.addClass("button");
+  newWheelButton.parent(newWheelButtonContainer);
+
+  restartButtonContainer = createDiv();
+  restartButtonContainer.addClass("buttonContainer");
+  restartButtonContainer.parent(controlsContainer);
 
   restartButton = createButton("🔄");
   restartButton.mousePressed(restartPage);
   restartButton.mouseReleased(releaseRestartButton);
-  restartButton.addClass("controls");
-  restartButton.style("left", "calc(50% + 115px)");
+  restartButton.addClass("button");
+  restartButton.parent(restartButtonContainer);
+
+  screenshotButtonContainer = createDiv();
+  screenshotButtonContainer.addClass("buttonContainer");
+  screenshotButtonContainer.parent(controlsContainer);
 
   screenshotButton = createButton("⏺");
   screenshotButton.mousePressed(screenshotPage);
   screenshotButton.mouseReleased(releaseScreenshotButton);
-  screenshotButton.addClass("controls");
-  screenshotButton.style("left", "calc(50% + 185px)");
+  screenshotButton.addClass("button");
+  screenshotButton.parent(screenshotButtonContainer);
 }
 
 function updateUI() {
