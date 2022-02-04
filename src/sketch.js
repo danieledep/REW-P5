@@ -38,7 +38,6 @@ class Tape {
 
 function setup() {
   createCanvas(widthScreen, heightScreen);
-  // select("canvas").style("background-color", random(bgColors));
   select("canvas").attribute("onclick", "pause()");
   createUI();
   timer = new Timer();
