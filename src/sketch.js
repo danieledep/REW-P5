@@ -1,7 +1,7 @@
 p5.disableFriendlyErrors = true; // disables FES
 
 let widthScreen = 800,
-  heightScreen = 590,
+  heightScreen = 583,
   wheelRadius = 15,
   tapeStart = {
     x: widthScreen / 3,

@@ -1,8 +1,8 @@
 
 :root {
-  --heightScreen: 590px;
+  --heightScreen: 583px;
   --widthScreen: 800px;
-
+  --controlsColor: rgba(245, 245, 245, 1.0);
   --backgroundColor: white;
 }
 
@@ -17,7 +17,8 @@ canvas {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background-image: url("cassette-depth.png");
+  margin-top: 80px; 
+  background-image: url("cassette-depth-gray.png");
 }
 
 .scoreElement {
@@ -31,14 +32,14 @@ canvas {
   position: absolute;
   font-size: 35px;
   padding: 0px 6px;
-  background-color: var(--backgroundColor);
+  background-color: var(--controlsColor);
   border: 0px solid;
   border-radius: 10px;
-  box-shadow: 0 0 0 2px black, 0px 16px var(--backgroundColor), 0px 16px 0px 2px black;
+  box-shadow: 0 0 0 2px black, 0px 16px var(--controlsColor), 0px 16px 0px 2px black;
 }
 
 .buttonPressed {
-  box-shadow: 0 0 0 2px black, 0px 8px var(--backgroundColor), 0px 8px 0px 2px black !important;
+  box-shadow: 0 0 0 2px black, 0px 8px var(--controlsColor), 0px 8px 0px 2px black !important;
   top: 8px !important;
 }
 
