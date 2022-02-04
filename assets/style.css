@@ -1,16 +1,16 @@
-/**
- * Correct the inability to style clickable types in iOS and Safari.
- */
 
 :root {
   --heightScreen: 590px;
   --widthScreen: 800px;
+
+  --backgroundColor: white;
 }
 
 body {
   font-family: "Share Tech Mono", monospace !important;
   margin: 0;
   width: 100%;
+  background-color: var(--backgroundColor);
 }
 
 canvas {
@@ -30,21 +30,21 @@ canvas {
 .button {
   position: absolute;
   font-size: 35px;
-  color: black;
   padding: 0px 6px;
-  background-color: white;
+  background-color: var(--backgroundColor);
   border: 0px solid;
   border-radius: 10px;
-  box-shadow: 0 0 0 2px black, 0px 16px white, 0px 16px 0px 2px black;
+  box-shadow: 0 0 0 2px black, 0px 16px var(--backgroundColor), 0px 16px 0px 2px black;
 }
 
 .buttonPressed {
-  box-shadow: 0 0 0 2px black, 0px 8px white, 0px 8px 0px 2px black !important;
+  box-shadow: 0 0 0 2px black, 0px 8px var(--backgroundColor), 0px 8px 0px 2px black !important;
   top: 8px !important;
 }
 
 .controlsContainer {
   margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
   justify-content: center;
 }

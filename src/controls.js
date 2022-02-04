@@ -7,6 +7,25 @@ let gamePaused = false,
   rightPressed = false,
   barLength = 100;
 
+let bgColors = [
+    "#33B1FF",
+    "#FD5361",
+    "#4CB5AE",
+    "#BEEE62",
+    "#36F1CD",
+    "#F786AA",
+    "#1B998B",
+    "#6369D1",
+    "#FFCF56",
+    "#A0E8AF",
+    "#F79824",
+    "#FCEB00",
+  ];
+
+let randomColor = randomArrayItem(bgColors);
+  document.documentElement.style.setProperty('--backgroundColor', randomColor);
+
+
 function createUI() {
   scoreElem = createDiv("TAPE UNROLLED: 0");
   scoreElem.id = "score";
@@ -107,7 +126,11 @@ function updateUI() {
     20
   );
 
-  scoreElem.html("TAPE UNROLLED: " + somma + "CM");
+  scoreElem.html("TAPE UNROLLED: " + tapeUnrolled + "CM");
+}
+
+function randomArrayItem(items) {
+  return items[Math.floor(Math.random()*items.length)];    
 }
 
 function checkButton() {

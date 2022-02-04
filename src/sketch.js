@@ -17,21 +17,7 @@ let widthScreen = 800,
   crossDirection = 0,
   particles = [],
   targetArea,
-  somma,
-  bgColors = [
-    "#33B1FF",
-    "#FD5361",
-    "#4CB5AE",
-    "#BEEE62",
-    "#36F1CD",
-    "#F786AA",
-    "#1B998B",
-    "#6369D1",
-    "#FFCF56",
-    "#A0E8AF",
-    "#F79824",
-    "#FCEB00",
-  ];
+  tapeUnrolled;
 
 class Tape {
   constructor(x, y, crossDir, movement, wheelMov) {
@@ -52,7 +38,7 @@ class Tape {
 
 function setup() {
   createCanvas(widthScreen, heightScreen);
-  select("canvas").style("background-color", random(bgColors));
+  // select("canvas").style("background-color", random(bgColors));
   select("canvas").attribute("onclick", "pause()");
   createUI();
   timer = new Timer();
@@ -157,11 +143,11 @@ function checkCrash() {
 function drawTape() {
   strokeWeight(2);
   stroke(0);
-  somma = 0;
+  tapeUnrolled = 0;
 
   //draw static tape
   for (let i = 0; i < tapes.length - 1; i++) {
-    somma += int(
+    tapeUnrolled += int(
       dist(tapes[i].x, tapes[i].y, tapes[i + 1].x, tapes[i + 1].y) / 40
     );
 
