@@ -6,8 +6,8 @@ A new chapter of the same music cassette whose tape keeps unrolling out of place
 - <kbd>&#8592;</kbd> or <kbd>A</kbd> to make the wheel turn left
 - <kbd>&#8594;</kbd> or <kbd>D</kbd> to make the wheel turn right
 - <kbd>&#8593;</kbd> or <kbd>W</kbd> to eject a new wheel   
-- <kbd>R</kbd> to take a screenshot
 - <kbd>Space</kbd> or <kbd>Left click</kbd> to pause/unpause the game   
+- <kbd>R</kbd> to take a screenshot
 
 
 ![screenshot](https://github.com/danieledep/REW_P5/blob/master/assets/Screenshot-10-11-2021.png)
