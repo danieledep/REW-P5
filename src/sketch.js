@@ -39,7 +39,9 @@ class Tape {
 
 function setup() {
   createCanvas(widthScreen, heightScreen);
-  bg_img = loadImage("assets/cassette-depth-gray.png");
+
+  preload();
+
   background(bg_img);
   select("canvas").attribute("onclick", "pause()");
   createUI();
@@ -65,6 +67,10 @@ function setup() {
   tapes.push(tapeLeft, tapeRight);
 
   pause();
+}
+
+function preload () {
+  bg_img = loadImage("cassette-depth-gray.png");
 }
 
 function draw() {
