@@ -259,6 +259,7 @@ function releaseEjectWheelButton() {
 }
 
 function releaseScreenshotButton() {
+  // the background image is missing
   // saveCanvas('myCanvas', 'png');
   screenshotButton.removeClass("buttonPressed");
 }
