@@ -39,7 +39,7 @@ class Tape {
 
 function setup() {
   createCanvas(widthScreen, heightScreen);
-  bg_img = loadImage("/REW-p5/assets/cassette-depth-gray.png");
+  bg_img = loadImage("./assets/cassette-depth-gray.png");
   select("canvas").background(bg_img);
   select("canvas").attribute("onclick", "pause()");
   createUI();
