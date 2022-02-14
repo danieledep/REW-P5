@@ -17,7 +17,8 @@ let widthScreen = 800,
   crossDirection = 0,
   particles = [],
   targetArea,
-  tapeUnrolled;
+  tapeUnrolled,
+  bg_img;
 
 class Tape {
   constructor(x, y, crossDir, movement, wheelMov) {
@@ -38,6 +39,7 @@ class Tape {
 
 function setup() {
   createCanvas(widthScreen, heightScreen);
+  bg_img = loadImage("assets/cassette-depth-gray.png");
   select("canvas").attribute("onclick", "pause()");
   createUI();
   timer = new Timer();
