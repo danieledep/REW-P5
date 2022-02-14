@@ -13,7 +13,8 @@ A new chapter of the same music cassette whose tape keeps unrolling out of place
 ![screenshot](https://github.com/danieledep/REW_P5/blob/master/assets/Screenshot-10-11-2021.png)
 
 ## To-dos
-- [ ] add record button ⏺ to save a screenshot
+- [x] add record button ⏺ to save a screenshot
+- [ ] move score text to canvas
 - [ ] fix spacebar flickering (debouncing)
 - [x] make controls work well on mobile
 - [x] fix bouncing direction bug
