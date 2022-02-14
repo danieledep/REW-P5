@@ -259,8 +259,6 @@ function releaseEjectWheelButton() {
 }
 
 function releaseScreenshotButton() {
-  saveFrames('out', 'png', 1, 25, data => {
-    print(data);
-  });
+  // saveCanvas('myCanvas', 'png');
   screenshotButton.removeClass("buttonPressed");
 }
