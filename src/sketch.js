@@ -17,8 +17,7 @@ let widthScreen = 800,
   crossDirection = 0,
   particles = [],
   targetArea,
-  tapeUnrolled,
-  bg_img;
+  tapeUnrolled;
 
 class Tape {
   constructor(x, y, crossDir, movement, wheelMov) {
@@ -39,10 +38,7 @@ class Tape {
 
 function setup() {
   createCanvas(widthScreen, heightScreen);
-
-  preload();
-
-  background(bg_img);
+  // select("canvas").style("background-color", random(bgColors));
   select("canvas").attribute("onclick", "pause()");
   createUI();
   timer = new Timer();
@@ -67,10 +63,6 @@ function setup() {
   tapes.push(tapeLeft, tapeRight);
 
   pause();
-}
-
-function preload () {
-  bg_img = loadImage("cassette-depth-gray.png");
 }
 
 function draw() {

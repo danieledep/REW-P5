@@ -18,7 +18,7 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   margin-top: 80px; 
-  // background-image: url("cassette-depth-gray.png");
+  background-image: url("cassette-depth-gray.png");
 }
 
 .scoreElement {
