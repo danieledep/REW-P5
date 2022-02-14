@@ -35,11 +35,11 @@ canvas {
   background-color: var(--controlsColor);
   border: 0px solid;
   border-radius: 10px;
-  box-shadow: 0 0 0 2px black, 0px 16px var(--controlsColor), 0px 16px 0px 2px black;
+  box-shadow: 0 0 0 1.6px black, 0px 16px var(--controlsColor), 0px 16px 0px 1.6px black;
 }
 
 .buttonPressed {
-  box-shadow: 0 0 0 2px black, 0px 8px var(--controlsColor), 0px 8px 0px 2px black !important;
+  box-shadow: 0 0 0 1.6px black, 0px 8px var(--controlsColor), 0px 8px 0px 1.6px black !important;
   top: 8px !important;
 }
 
