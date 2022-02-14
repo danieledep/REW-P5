@@ -18,7 +18,9 @@ let widthScreen = 800,
   particles = [],
   targetArea,
   tapeUnrolled,
-  backgroundImage;
+  backgroundImage,
+  ctx,
+  canvas;
 
 class Tape {
   constructor(x, y, crossDir, movement, wheelMov) {
@@ -38,9 +40,9 @@ class Tape {
 }
 
 function setup() {
-  createCanvas(widthScreen, heightScreen);
-  // select("canvas").style("background-color", random(bgColors));
-  preloadBackground();
+
+  canvas = createCanvas(widthScreen, heightScreen);
+  ctx = canvas.drawingContext;
   select("canvas").attribute("onclick", "pause()");
   createUI();
   timer = new Timer();
@@ -72,7 +74,7 @@ function draw() {
   
   //DEBUG QTREE
   //qtree.show();
-  background(backgroundImage);
+  drawCassette();
   checkTimer();
   checkButton();
   checkCross();
@@ -84,11 +86,6 @@ function draw() {
   checkCrash();
   updateUI();
   //getCassetteData();
-}
-
-function preloadBackground () {
-  backgroundImage = loadImage("assets/cassette-depth-gray.png");
-  backgroundImage.resize(widthScreen, heightScreen);
 }
 
 function createNewWheel() {
