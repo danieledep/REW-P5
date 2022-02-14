@@ -230,7 +230,7 @@ function ejectWheel() {
 }
 
 function screenshotPage() {
-  // saveCanvas('myCanvas', 'png');
+  saveCanvas('myCanvas', 'jpg');
   screenshotButton.addClass("buttonPressed");
 }
 
