@@ -5,7 +5,8 @@ let gamePaused = false,
   pauseButton,
   leftPressed = false,
   rightPressed = false,
-  barLength = 100;
+  barLength = 100
+  date = new Date();
 
 let bgColors = [
     "#33B1FF",
@@ -259,7 +260,9 @@ function releaseEjectWheelButton() {
 }
 
 function releaseScreenshotButton() {
-  // the background image is missing
-  saveCanvas('myCanvas', 'png');
+  let dateString = ('0' + date.getDate()).slice(-2) + '-'
+  + ('0' + (date.getMonth()+1)).slice(-2) + '-'
+  + date.getFullYear();
+  saveCanvas('Screenshot-' + dateString , 'png');
   screenshotButton.removeClass("buttonPressed");
 }
