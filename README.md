@@ -15,7 +15,6 @@ A new chapter of the same music cassette whose tape keeps unrolling out of place
 ## To-dos
 - [x] add record button ⏺ to save a screenshot
 - [ ] move score text to canvas
-- [ ] fix spacebar flickering (debouncing)
 - [x] make controls work well on mobile
 - [x] fix bouncing direction bug
 - [ ] when intersecting tape update tape also for wheel n-1 and n+1
