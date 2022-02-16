@@ -145,11 +145,6 @@ function checkButton() {
     return;
   }
 
-  if (keyIsDown(32)) {
-    pause();
-    return;
-  }
-
   if (keyIsDown(38) || keyIsDown(87)) {
     ejectWheel();
     return;
@@ -173,6 +168,10 @@ function keyReleased() {
 
   if (keyCode === 68 || keyCode === 39) {
     releaseRightButton();
+  }
+
+  if (keyCode === 32) {
+    pause();
   }
 
   if (keyCode === 38 || keyCode === 87) {
