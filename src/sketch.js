@@ -20,7 +20,8 @@ let widthScreen = 800,
   tapeUnrolled,
   backgroundImage,
   ctx,
-  canvas;
+  canvas,
+  shareTechMono;
 
 class Tape {
   constructor(x, y, crossDir, movement, wheelMov) {
@@ -44,6 +45,7 @@ function setup() {
   canvas = createCanvas(widthScreen, heightScreen);
   ctx = canvas.drawingContext;
   select("canvas").attribute("onclick", "pause()");
+
   createUI();
   timer = new Timer();
 
@@ -70,10 +72,20 @@ function setup() {
 }
 
 function draw() {
+  
   clear();
   
+  background(randomColor);
+
+  // textSize(32);
+  // fill(0, 102, 153);
+  // strokeWeight(0);
+  // ctx.font = "30px sans-serif";
+  // text('123848', 10, 30);
+
   //DEBUG QTREE
   //qtree.show();
+  
   drawCassette();
   checkTimer();
   checkButton();
