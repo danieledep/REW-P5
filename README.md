@@ -23,3 +23,6 @@ A new chapter of the same music cassette whose tape keeps unrolling out of place
 - [ ] add sound effects
 - [ ] build hardware controller
 
+## Misc.
+
+![Tape Loop-Labyrinths](https://github.com/danieledep/REW_P5/blob/master/assets/tape-loop-labyrinths.jpg)
