@@ -25,4 +25,5 @@ A new chapter of the same music cassette whose tape keeps unrolling out of place
 
 ## Misc.
 
-![Tape Loop-Labyrinths](https://github.com/danieledep/REW_P5/blob/master/assets/tape-loop-labyrinths.jpg)
+![Tape Loop-Labyrinths](https://github.com/danieledep/REW_P5/blob/master/assets/tape-loop-labyrinths.jpg)   
+*[The Tape Loop Labyrinths](https://www.tabsout.com/?p=17050) from Justin Lakes, not an inspiration for this project but nonetheless a great concept*
