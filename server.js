@@ -3,12 +3,12 @@
 
 
 // Setup basic express server + socket.io
-var express = require('express');
-var app = express();
-var path = require('path');
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
-var port = process.env.PORT || 3000;
+let express = require('express');
+let app = express();
+let path = require('path');
+let server = require('http').createServer(app);
+let io = require('socket.io')(server);
+let port = process.env.PORT || 3000;
 
 
 server.listen(port, () => {
@@ -28,14 +28,14 @@ io.on('connection', (socket) => {
 
 const five = require("johnny-five");
 const board = new five.Board();
-var buttonPin1 = 8,
+let buttonPin1 = 8,
     buttonPin2 = 9,
     ledPin1 = 11,
     ledPin2 = 12,
     phInterPin1 = 4,
     phInterPin2 = 2;
 
-var segTime1 = 0,
+let segTime1 = 0,
     segTime2 = 0;
 
 board.on("ready", function() {
