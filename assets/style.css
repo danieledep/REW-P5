@@ -3,6 +3,7 @@
   --heightScreen: 583px;
   --widthScreen: 800px;
   --backgroundColor: white;
+  --buttonSize: 50px;
 }
 
 body {
@@ -27,9 +28,31 @@ canvas {
   transform: translate(-50%, -106px);
 }
 
+.controlsContainer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height:  var(--buttonSize);
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttonContainer {
+  position: relative;
+  width: 100%;
+}
+
 .button {
   position: absolute;
   font-size: 35px;
+  width: var(--buttonSize);
+  height: var(--buttonSize);
+  left: 50%;
+  transform: translate(-50%, 0);
   padding: 0px 6px;
   background-color: var(--backgroundColor);
   border: 0px solid;
@@ -43,16 +66,16 @@ canvas {
   top: 8px !important;
 }
 
-.controlsContainer {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: center;
-}
 
-.buttonContainer {
-  width: 80px;
-  height: 60px;
-  position: relative;
+@media screen and (min-width: 768px) {
+
+  .controlsContainer {
+    width: 50%; 
+  }
+
+  .button {
+    width: var(--buttonSize);
+    height: var(--buttonSize);
+  }
 }
 
