@@ -54,7 +54,7 @@ function createUI() {
 
   pauseButton = createButton("▶️");
   pauseButton.mousePressed(pause);
-  pauseButton.touchStarted(pause);
+  // pauseButton.touchStarted(pause);
   pauseButton.addClass("button");
   pauseButton.style("font-bold", "bolder");
   pauseButton.parent(pauseButtonContainer);
