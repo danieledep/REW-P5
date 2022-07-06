@@ -10,7 +10,7 @@ A new chapter of the same music cassette whose tape keeps unrolling out of place
 - <kbd>R</kbd> to take a screenshot
 
 
-![screenshot](https://github.com/danieledep/REW_P5/blob/master/assets/Screenshot-10-11-2021.png)
+![screenshot](https://github.com/danieledep/REW_P5/blob/master/assets/Screenshot-06-07-2022.png)
 
 ## To-dos
 - [x] add record button ⏺ to save a screenshot
