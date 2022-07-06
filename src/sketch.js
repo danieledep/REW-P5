@@ -40,6 +40,10 @@ class Tape {
   }
 }
 
+function preload() {
+  shareTechMono = loadFont('assets/ShareTechMono-Regular.ttf');
+}
+
 function setup() {
 
   canvas = createCanvas(widthScreen, heightScreen);

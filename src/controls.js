@@ -1,5 +1,4 @@
 let gamePaused = false,
-  scoreElem,
   leftButton,
   rightButton,
   pauseButton,
@@ -28,9 +27,6 @@ let randomColor = randomArrayItem(bgColors);
 
 
 function createUI() {
-  scoreElem = createDiv("TAPE UNROLLED: 0");
-  scoreElem.id = "score";
-  scoreElem.addClass("scoreElement");
 
   controlsContainer = createDiv();
   controlsContainer.addClass("controlsContainer");
@@ -127,7 +123,12 @@ function updateUI() {
     20
   );
 
-  scoreElem.html("TAPE UNROLLED: " + tapeUnrolled + "CM");
+  fill(0)
+  .strokeWeight(0)
+  .textSize(16);
+  textFont(shareTechMono);
+  textAlign(CENTER);
+  text('TAPE UNROLLED: ' + tapeUnrolled + 'CM', widthScreen / 2, heightScreen - 90);
 }
 
 function randomArrayItem(items) {

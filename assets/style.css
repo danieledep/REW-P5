@@ -24,13 +24,6 @@ canvas {
   // background-image: url("cassette-depth.svg");
 }
 
-.scoreElement {
-  position: absolute;
-  color: black;
-  left: 50%;
-  transform: translate(-50%, -106px);
-}
-
 .controlsContainer {
   margin-top: 50px;
   margin-bottom: 50px;
