@@ -35,6 +35,7 @@ canvas {
   justify-items: center;
   margin-left: auto;
   margin-right: auto;
+  touch-action: manipulation;
 }
 
 .buttonContainer {
