@@ -1,5 +1,7 @@
 
 :root {
+  --heightScreen: 583px;
+  --widthScreen: 800px;
   --backgroundColor: white;
   --buttonSize: 50px;
 }
@@ -17,8 +19,10 @@ canvas {
   margin-left: auto;
   margin-right: auto;
   margin-top: 80px; 
-  width: 100% ;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
+  width: var(--widthScreen);
+  height: var(--heightScreen);
   // background-image: url("cassette-depth.svg");
 }
 

@@ -48,8 +48,8 @@ function setup() {
 
   // define canvas dimensions for mobile screens
   if (window.innerWidth < widthScreen) {
-    heightScreen = window.innerWidth * (heightScreen / widthScreen);
-    widthScreen = window.innerWidth;
+    root.style.setProperty('--heightScreen', window.innerWidth * (heightScreen / widthScreen) + "px");
+    root.style.setProperty('--widthScreen', window.innerWidth + "px");
   }
 
   canvas = createCanvas(widthScreen, heightScreen);
