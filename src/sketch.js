@@ -48,6 +48,7 @@ function setup() {
 
   // define canvas dimensions for mobile screens
   if (window.innerWidth < widthScreen) {
+    const root = document.querySelector(':root');
     root.style.setProperty('--heightScreen', window.innerWidth * (heightScreen / widthScreen) + "px");
     root.style.setProperty('--widthScreen', window.innerWidth + "px");
   }
