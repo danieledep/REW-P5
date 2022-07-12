@@ -81,12 +81,6 @@ function draw() {
   
   background(randomColor);
 
-  // textSize(32);
-  // fill(0, 102, 153);
-  // strokeWeight(0);
-  // ctx.font = "30px sans-serif";
-  // text('123848', 10, 30);
-
   //DEBUG QTREE
   //qtree.show();
   
@@ -102,6 +96,7 @@ function draw() {
   checkCrash();
   updateUI();
   //getCassetteData();
+  
 }
 
 function createNewWheel() {
