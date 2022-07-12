@@ -46,6 +46,12 @@ function preload() {
 
 function setup() {
 
+  // define canvas dimensions for mobile screens
+  if (window.innerWidth < widthScreen) {
+    heightScreen = window.innerWidth * (heightScreen / widthScreen);
+    widthScreen = window.innerWidth;
+  }
+
   canvas = createCanvas(widthScreen, heightScreen);
   ctx = canvas.drawingContext;
   select("canvas").attribute("onclick", "pause()");
@@ -96,7 +102,7 @@ function draw() {
   checkCrash();
   updateUI();
   //getCassetteData();
-  
+
 }
 
 function createNewWheel() {
