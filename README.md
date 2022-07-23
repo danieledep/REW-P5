@@ -19,7 +19,7 @@ A new chapter of the same music cassette whose tape keeps unrolling out of place
 - [x] fix bouncing direction bug
 - [x] when intersecting tape update tape also for wheel n-1 and n+1
 - [x] wheel speed should go faster as game advance
-- [ ] update html2canvas when it supports `mix-blend-mode`
+- [ ] update html2canvas when it supports `mix-blend-mode`, [#2839](https://github.com/niklasvh/html2canvas/pull/2839)
 - [ ] build hardware controller
 
 ## Misc.
