@@ -17,10 +17,8 @@ A new chapter of the same music cassette whose tape keeps unrolling out of place
 - [x] move score text to canvas
 - [x] make controls work well on mobile
 - [x] fix bouncing direction bug
-- [ ] when intersecting tape update tape also for wheel n-1 and n+1
-- [ ] fix performance issues when there are lots of wheels, compare with [this algorithm](https://github.com/davidfig/intersects/blob/master/line-circle.js)
-- [ ] wheel speed should go faster as game advance
-- [ ] add sound effects
+- [x] when intersecting tape update tape also for wheel n-1 and n+1
+- [x] wheel speed should go faster as game advance
 - [ ] build hardware controller
 
 ## Misc.
