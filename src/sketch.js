@@ -107,6 +107,7 @@ function draw() {
 }
 
 function createNewWheel() {
+  initialSpeed += 0.25;
   particles[particles.length] = new Particle();
   theta = Math.PI / 2;
   timer.resetTimer();
@@ -183,6 +184,7 @@ function drawTape() {
 function checkCross() {
   // for each wheel - particle
   for (let j = 0; j < particles.length; j++) {
+
     // let p = new Particle();
     // Object.assign(p, particles[j]);
     // removed because of performance issues
@@ -235,9 +237,9 @@ function checkCross() {
 
 function moveLine() {
   for (let i = 0; i < tapes.length - 2; i++) {
+
     //draw dinamic tape
     if (
-      particles[tapes[i + 1].wheelMov].moving &&
       tapes[i + 1].wheelMov == tapes[i + 2].wheelMov
     ) {
       //console.log("moveLine: ", i, " - ", i+1)
@@ -248,10 +250,10 @@ function moveLine() {
       const rightWheel = particles[tapes[i + 3].wheelMov];
 
       //DEBUG
-      //strokeWeight(0);
-      //fill(20, 200,90);
-      //ellipse (leftWheel.x, leftWheel.y, wheelRadius+20, wheelRadius+20)
-      //ellipse (rightWheel.x, rightWheel.y, wheelRadius+20, wheelRadius+20)
+      // strokeWeight(0);
+      // fill(20, 200,90);
+      // ellipse (leftWheel.x, leftWheel.y, wheelRadius+20, wheelRadius+20)
+      // ellipse (rightWheel.x, rightWheel.y, wheelRadius+20, wheelRadius+20)
 
       let lt = calculateTangent(
         leftWheel,
@@ -319,6 +321,7 @@ function moveLine() {
 }
 
 function insertMovingPoint(point, sectionCross, crossDirection, wheelCross) {
+
   const leftWheel = particles[tapes[sectionCross].wheelMov];
   const rightWheel = particles[tapes[sectionCross + 1].wheelMov];
 
@@ -328,8 +331,21 @@ function insertMovingPoint(point, sectionCross, crossDirection, wheelCross) {
     tapes[sectionCross].cross,
     crossDirection
   );
-  tapes[sectionCross].update(lt.x1, lt.y1, false, tapes[sectionCross].wheelMov);
-  let insertTapeLeft = new Tape(lt.x2, lt.y2, crossDirection, true, wheelCross);
+
+  tapes[sectionCross].update(
+    lt.x1, 
+    lt.y1, 
+    false, 
+    tapes[sectionCross].wheelMov
+  );
+
+  let insertTapeLeft = new Tape(
+    lt.x2, 
+    lt.y2, 
+    crossDirection, 
+    true, 
+    wheelCross
+  );
 
   let rt = calculateTangent(
     point,
@@ -337,6 +353,7 @@ function insertMovingPoint(point, sectionCross, crossDirection, wheelCross) {
     crossDirection,
     tapes[sectionCross + 1].cross
   );
+
   let insertTapeRight = new Tape(
     rt.x1,
     rt.y1,
@@ -344,6 +361,7 @@ function insertMovingPoint(point, sectionCross, crossDirection, wheelCross) {
     true,
     wheelCross
   );
+
   tapes[sectionCross + 1].update(
     rt.x2,
     rt.y2,

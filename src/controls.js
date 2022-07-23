@@ -128,7 +128,7 @@ function updateUI() {
   .textSize(16);
   textFont(shareTechMono);
   textAlign(CENTER);
-  text('TAPE UNROLLED: ' + tapeUnrolled + 'CM', widthScreen / 2, heightScreen - 90);
+  text('[ TAPE ' + tapeUnrolled + 'CM ]     [ WHEELS ' + particles.length + ' ]' , widthScreen / 2, heightScreen - 83);
 }
 
 function randomArrayItem(items) {
@@ -263,6 +263,34 @@ function releaseScreenshotButton() {
   let dateString = ('0' + date.getDate()).slice(-2) + '-'
   + ('0' + (date.getMonth()+1)).slice(-2) + '-'
   + date.getFullYear();
-  saveCanvas('Screenshot-' + dateString , 'png');
+
+  // Save only the game canvas
+  // saveCanvas('Screenshot-' + dateString , 'png');
+
+  // Save the whole page with html2canvas
+  html2canvas(document.querySelector('html')).then(function(canvas) {
+    saveAs(canvas.toDataURL(), 'Screenshot-' + dateString + '.png');
+  });
+
   screenshotButton.removeClass("buttonPressed");
+}
+
+function saveAs(uri, filename) {
+
+  var link = document.createElement('a');
+
+  if (typeof link.download === 'string') {
+
+      link.href = uri;
+      link.download = filename;
+      //Firefox requires the link to be in the body
+      document.body.appendChild(link);
+      //simulate click
+      link.click();
+      //remove the link when done
+      document.body.removeChild(link);
+
+  } else {
+      window.open(uri);
+  }
 }

@@ -10,16 +10,17 @@ class Particle {
     this.x = start.x;
     this.y = start.y;
     this.r = wheelRadius;
-    (this.speed = initialSpeed),
-      (this.color = "gray"),
-      (this.vx = 0),
-      (this.vy = 0),
-      (this.moving = true);
+    this.speed = initialSpeed,
+      this.color = "gray",
+      this.vx = 0,
+      this.vy = 0,
+      this.moving = true;
     //html image
     this.img = createImg("assets/wheelB.png", "");
     this.img.position(this.x - wheelRadius, this.y - wheelRadius);
     this.img.hide();
   }
+
   setup(x, y, speed, movement) {
     this.x = x;
     this.y = y;
