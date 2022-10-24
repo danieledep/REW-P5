@@ -15,14 +15,15 @@ A new chapter of the same music cassette whose tape keeps unrolling out of place
 ## To-dos
 - [x] add record button ⏺ to save a screenshot
 - [x] move score text to canvas
-- [x] make controls work well on mobile
+- [ ] make controls work well on mobile
 - [x] fix bouncing direction bug
 - [x] when intersecting tape update tape also for wheel n-1 and n+1
 - [x] wheel speed should go faster as game advance
 - [ ] update html2canvas when it supports `mix-blend-mode`, [#2839](https://github.com/niklasvh/html2canvas/pull/2839)
+- [ ] crashes on mobile
 - [ ] build hardware controller
 
 ## Misc.
 
 ![Tape Loop-Labyrinths](https://github.com/danieledep/REW_P5/blob/master/assets/tape-loop-labyrinths.jpg)   
-*[The Tape Loop Labyrinths](https://www.tabsout.com/?p=17050) from Justin Lakes, not the inspiration for this project but nonetheless a great concept*
+*[The Tape Loop Labyrinths](https://www.tabsout.com/?p=17050) from Justin Lakes, not the inspiration for this project but still a great concept*
