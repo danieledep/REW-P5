@@ -14,5 +14,5 @@ socket.on('turn', (data) => {
 
   socket.on('button', (data) => {
       if (data.button == 'left') window.location.reload(false);
-      if (data.button == 'right') pause();
+      if (data.button == 'right') stop();
     });

@@ -3,7 +3,7 @@
   --heightScreen: 583px;
   --widthScreen: 800px;
   --backgroundColor: white;
-  --buttonSize: 50px;
+  --buttonSize: 42px;
 }
 
 body {
@@ -30,7 +30,7 @@ canvas {
   margin-top: 50px;
   margin-bottom: 50px;
   height:  var(--buttonSize);
-  width: 100%;
+  width: 85%;
   gap: 20px;
   display: flex;
   justify-content: center;
@@ -47,7 +47,7 @@ canvas {
 
 .button {
   position: absolute;
-  font-size: 35px;
+  font-size: 30px;
   width: var(--buttonSize);
   height: var(--buttonSize);
   left: 50%;
@@ -68,6 +68,10 @@ canvas {
 
 @media screen and (min-width: 768px) {
 
+  :root {
+    --buttonSize: 50px;
+  }
+
   canvas {
     width: auto;
     height: auto;
@@ -78,6 +82,7 @@ canvas {
   }
 
   .button {
+    font-size: 35px;
     width: var(--buttonSize);
     height: var(--buttonSize);
   }

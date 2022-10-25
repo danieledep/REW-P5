@@ -31,6 +31,41 @@ function createUI() {
   controlsContainer = createDiv();
   controlsContainer.addClass("controlsContainer");
 
+  screenshotButtonContainer = createDiv();
+  screenshotButtonContainer.addClass("buttonContainer");
+  screenshotButtonContainer.parent(controlsContainer);
+
+  screenshotButton = createButton("⏺");
+  screenshotButton.mousePressed(screenshotPage);
+  screenshotButton.mouseReleased(releaseScreenshotButton);
+  screenshotButton.touchStarted(screenshotPage);
+  screenshotButton.touchEnded(releaseScreenshotButton);
+  screenshotButton.addClass("button");
+  screenshotButton.parent(screenshotButtonContainer);
+
+  restartButtonContainer = createDiv();
+  restartButtonContainer.addClass("buttonContainer");
+  restartButtonContainer.parent(controlsContainer);
+
+  restartButton = createButton("🔄");
+  restartButton.mousePressed(restartPage);
+  restartButton.mouseReleased(releaseRestartButton);
+  restartButton.touchStarted(restartPage);
+  restartButton.touchEnded(releaseRestartButton);
+  restartButton.addClass("button");
+  restartButton.parent(restartButtonContainer);
+
+  newWheelButtonContainer = createDiv();
+  newWheelButtonContainer.addClass("buttonContainer");
+  newWheelButtonContainer.parent(controlsContainer);
+
+  newWheelButton = createButton("⏏️");
+  newWheelButton.mousePressed(ejectWheel);
+  newWheelButton.mouseReleased(releaseEjectWheelButton);
+  newWheelButton.touchStarted(ejectWheel);
+  newWheelButton.touchEnded(releaseEjectWheelButton);
+  newWheelButton.addClass("button");
+  newWheelButton.parent(newWheelButtonContainer);
 
   leftButtonContainer = createDiv();
   leftButtonContainer.addClass("buttonContainer");
@@ -49,8 +84,8 @@ function createUI() {
   pauseButtonContainer.parent(controlsContainer);
 
   pauseButton = createButton("▶️");
-  pauseButton.mousePressed(pause);
-  // pauseButton.touchStarted(pause);
+  pauseButton.mousePressed(stop);
+  // pauseButton.touchStarted(stop);
   pauseButton.addClass("button");
   pauseButton.style("font-bold", "bolder");
   pauseButton.parent(pauseButtonContainer);
@@ -67,41 +102,6 @@ function createUI() {
   rightButton.addClass("button");
   rightButton.parent(rightButtonContainer);
 
-  newWheelButtonContainer = createDiv();
-  newWheelButtonContainer.addClass("buttonContainer");
-  newWheelButtonContainer.parent(controlsContainer);
-
-  newWheelButton = createButton("⏏️");
-  newWheelButton.mousePressed(ejectWheel);
-  newWheelButton.mouseReleased(releaseEjectWheelButton);
-  newWheelButton.touchStarted(ejectWheel);
-  newWheelButton.touchEnded(releaseEjectWheelButton);
-  newWheelButton.addClass("button");
-  newWheelButton.parent(newWheelButtonContainer);
-
-  restartButtonContainer = createDiv();
-  restartButtonContainer.addClass("buttonContainer");
-  restartButtonContainer.parent(controlsContainer);
-
-  restartButton = createButton("🔄");
-  restartButton.mousePressed(restartPage);
-  restartButton.mouseReleased(releaseRestartButton);
-  restartButton.touchStarted(restartPage);
-  restartButton.touchEnded(releaseRestartButton);
-  restartButton.addClass("button");
-  restartButton.parent(restartButtonContainer);
-
-  screenshotButtonContainer = createDiv();
-  screenshotButtonContainer.addClass("buttonContainer");
-  screenshotButtonContainer.parent(controlsContainer);
-
-  screenshotButton = createButton("⏺");
-  screenshotButton.mousePressed(screenshotPage);
-  screenshotButton.mouseReleased(releaseScreenshotButton);
-  screenshotButton.touchStarted(screenshotPage);
-  screenshotButton.touchEnded(releaseScreenshotButton);
-  screenshotButton.addClass("button");
-  screenshotButton.parent(screenshotButtonContainer);
 }
 
 function updateUI() {
@@ -172,7 +172,7 @@ function keyReleased() {
   }
 
   if (keyCode === 32) {
-    pause();
+    stop();
   }
 
   if (keyCode === 38 || keyCode === 87) {
@@ -186,7 +186,7 @@ function keyReleased() {
   return false; // prevent any default behavior
 }
 
-function pause() {
+function stop() {
   if (gamePaused) {
     unpauseGame();
   } else {

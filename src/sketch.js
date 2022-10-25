@@ -55,7 +55,7 @@ function setup() {
 
   canvas = createCanvas(widthScreen, heightScreen);
   ctx = canvas.drawingContext;
-  select("canvas").attribute("onclick", "pause()");
+  select("canvas").attribute("onclick", "stop()");
 
   createUI();
   timer = new Timer();
@@ -79,7 +79,7 @@ function setup() {
   let tapeRight = new Tape(tapeEnd.x, tapeEnd.y, 0, false, 1);
   tapes.push(tapeLeft, tapeRight);
 
-  pause();
+  stop();
 }
 
 function draw() {
