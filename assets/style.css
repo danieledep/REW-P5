@@ -42,7 +42,7 @@ canvas {
 
 .buttonContainer {
   position: relative;
-  width: 100%;
+  width: var(--buttonSize);
 }
 
 .button {
